@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
 
-@import url(${({ theme }) => theme.font.atImportUrl});
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 *,
 *:before,
@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 
 html {  
-  font-family: ${({ theme }) => theme.font.family};
+  font-family: 'Roboto', serif;
   text-size-adjust: 100%;
   box-sizing: border-box;
   font-size: 16px;
@@ -19,6 +19,7 @@ html {
 }
 
 body {
+  font-family: 'Roboto', serif;
   margin: 0;
   color:  ${({ theme }) => theme.colors.textOnSurface};
   background: ${({ theme }) => theme.colors.background};
@@ -26,7 +27,6 @@ body {
   font-size: ${({ theme }) => theme.font.defaultSize};
   font-weight: ${({ theme }) => theme.font.weightRegular};
   line-height: ${({ theme }) => theme.font.defaultLineHeight};
-  font-family: ${({ theme }) => theme.font.family};
 }
 
 

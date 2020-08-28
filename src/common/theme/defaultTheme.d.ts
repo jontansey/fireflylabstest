@@ -5,6 +5,10 @@ export interface DefaultTheme {
     surface: string;
     textOnSurface: string;
 
+    navigationBackground: string;
+    navigationSelectedBackground: string;
+    textOnNavigation: string;
+
     headerBackground: string;
     textOnHeader: string;
 
@@ -15,9 +19,6 @@ export interface DefaultTheme {
     border: string;
   };
   font: {
-    family: string;
-    atImportUrl: string;
-
     weightRegular: string;
     weightMedium: string;
     weightBold: string;

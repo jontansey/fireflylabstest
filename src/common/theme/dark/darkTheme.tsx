@@ -7,6 +7,10 @@ const darkTheme: DefaultTheme = {
     surface: "#1A1D24",
     textOnSurface: "#FFFFFF",
 
+    navigationBackground: "#363E4A",
+    navigationSelectedBackground: "#6C7D85",
+    textOnNavigation: "#FFFFFF",
+
     headerBackground: "#343A49",
     textOnHeader: "#FFFFFF",
 
@@ -17,10 +21,6 @@ const darkTheme: DefaultTheme = {
     border: "#343A49",
   },
   font: {
-    family: "'Roboto', sans-serif",
-    atImportUrl:
-      "//fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap",
-
     weightRegular: "400",
     weightMedium: "500",
     weightBold: "700",
