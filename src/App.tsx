@@ -3,6 +3,7 @@ import Providers from "./providers";
 import { Container, Row, Col } from "react-grid-system";
 
 import Navigation from "./common/components/navigation";
+import Reports from "./features/reports";
 
 const App: React.FC = () => (
   <Providers>
@@ -10,6 +11,7 @@ const App: React.FC = () => (
       <Row>
         <Col>
           <Navigation />
+          <Reports />
         </Col>
       </Row>
     </Container>
