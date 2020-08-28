@@ -10,6 +10,7 @@ export const StyledPanelContainer = styled("div")`
 
 export const StyledPanelHeader = styled("div")`
   display: flex;
+  justify-content: space-between;
   align-items: center;
   padding: 0 15px;
   height: 26px;
