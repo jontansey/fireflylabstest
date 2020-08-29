@@ -4,7 +4,6 @@ import Plus from "mdi-react/AddIcon";
 import X from "mdi-react/CloseIcon";
 
 import { IconWrapper } from "./icon.styled";
-import { TestIdProps, makeTestId } from "../../../utils/testIdUtils";
 
 const icons = {
   Plus,
@@ -20,16 +19,18 @@ type Props = {
   size?: string;
   title?: string;
   onClick?: () => void;
+  testId?: string;
+  disabled?: boolean;
 };
-export type IconProps = Props & TestIdProps;
+export type IconProps = Props;
 
 export const Icon: React.FC<IconProps> = ({
   icon,
   size = "24",
   title = `${icon} icon`,
-  testIdPrefix = "",
   testId = "icon",
-  testIdSuffix = "",
+  onClick,
+  disabled = false,
   ...rest
 }) => {
   const Component = icons[icon];
@@ -39,13 +40,12 @@ export const Icon: React.FC<IconProps> = ({
     <IconWrapper
       role="img"
       title={title}
-      data-testid={makeTestId(testIdPrefix, testId, testIdSuffix)}
+      data-testid={testId}
+      clickable={!!onClick}
+      disabled={disabled}
       {...rest}
     >
-      <Component
-        size={size}
-        data-testid={makeTestId(testIdPrefix, testId, icon)}
-      />
+      <Component size={size} />
     </IconWrapper>
   );
 };

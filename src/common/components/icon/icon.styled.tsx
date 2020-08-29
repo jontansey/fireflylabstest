@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
-export const IconWrapper = styled.i`
+export const IconWrapper = styled("i")<{
+  clickable: boolean;
+  disabled: boolean;
+}>`
+  opacity: ${({ disabled }) => (disabled ? "0.2" : "1")};
+  cursor: ${({ clickable }) => (clickable ? "pointer" : "auto")};
   svg {
     display: block;
   }
