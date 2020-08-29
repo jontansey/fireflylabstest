@@ -6,11 +6,13 @@ type SelectProps = {
   options: Option[];
   onChange: (value: Option) => void;
   testId?: string;
+  placeholder?: string;
 };
 
 export const Select: React.FC<SelectProps> = ({
   options,
   onChange,
+  placeholder = "select...",
   testId = "select",
 }) => {
   return (
@@ -19,6 +21,7 @@ export const Select: React.FC<SelectProps> = ({
       options={options}
       onChange={onChange}
       classNamePrefix="react-select"
+      placeholder={placeholder}
     />
   );
 };
