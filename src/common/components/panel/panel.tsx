@@ -4,8 +4,6 @@ import {
   StyledPanelHeader,
   StyledPanelContent,
 } from "./panel.styled";
-import { TestIdProps, makeTestId } from "../../../utils/testIdUtils";
-import noop from "../../../utils/dummyData/noop";
 import Icon from "../icon";
 
 export type Props = {
@@ -13,31 +11,27 @@ export type Props = {
   title: string;
   canClose: boolean;
   onClose?(): void;
+  testId?: string;
+  //TODO size prop
 };
 
-type PanelProps = Props & TestIdProps;
+type PanelProps = Props;
 
 const Panel: React.FC<PanelProps> = ({
   children,
   onClose,
   title,
-  testIdPrefix = "",
   testId = "panel",
+  canClose,
 }) => {
   return (
-    <StyledPanelContainer data-testid={makeTestId(testIdPrefix, testId)}>
-      <StyledPanelHeader
-        data-testid={makeTestId(testIdPrefix, testId, "panelHeader")}
-      >
+    <StyledPanelContainer data-testid={testId}>
+      <StyledPanelHeader>
         {title}
 
-        <Icon icon="X" onClick={onClose ?? noop} />
+        <Icon icon="X" onClick={onClose ?? undefined} disabled={!canClose} />
       </StyledPanelHeader>
-      <StyledPanelContent
-        data-testid={makeTestId(testIdPrefix, testId, "panelContent")}
-      >
-        {children}
-      </StyledPanelContent>
+      <StyledPanelContent>{children}</StyledPanelContent>
     </StyledPanelContainer>
   );
 };

@@ -20,7 +20,15 @@ const darkTheme: DefaultTheme = {
 
     border: "#343A49",
   },
+  button: {
+    boarderColor: "#5D6065",
+    textColor: "#FFFFFF",
+
+    hoverBackground: "#13455D",
+    hoverBorder: "#00ADF8",
+  },
   font: {
+    weightLight: "300",
     weightRegular: "400",
     weightMedium: "500",
     weightBold: "700",

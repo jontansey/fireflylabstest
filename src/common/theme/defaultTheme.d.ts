@@ -18,7 +18,17 @@ export interface DefaultTheme {
 
     border: string;
   };
+
+  button: {
+    boarderColor: string;
+    textColor: string;
+
+    hoverBackground: string;
+    hoverBorder: string;
+  };
+
   font: {
+    weightLight: string;
     weightRegular: string;
     weightMedium: string;
     weightBold: string;

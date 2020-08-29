@@ -12,7 +12,7 @@ export const StyledPanelHeader = styled("div")`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 7px 0px 15px;
   height: 26px;
   background-color: ${({ theme }) => theme.colors.headerBackground};
   color: ${({ theme }) => theme.colors.textOnHeader};
