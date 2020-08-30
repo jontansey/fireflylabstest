@@ -27,6 +27,11 @@ export interface DefaultTheme {
     hoverBorder: string;
   };
 
+  table: {
+    headerFontColor: string;
+    fontColor: string;
+  };
+
   font: {
     weightLight: string;
     weightRegular: string;

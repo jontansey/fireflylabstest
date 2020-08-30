@@ -27,6 +27,10 @@ const darkTheme: DefaultTheme = {
     hoverBackground: "#13455D",
     hoverBorder: "#00ADF8",
   },
+  table: {
+    headerFontColor: "#879BA6",
+    fontColor: "#b8b8b9",
+  },
   font: {
     weightLight: "300",
     weightRegular: "400",
