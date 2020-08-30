@@ -6,16 +6,17 @@ import {
 } from "./panel.styled";
 import Icon from "../icon";
 
-export type Props = {
+type Props = {
   id?: string;
   title: string;
   canClose: boolean;
   onClose?(): void;
   testId?: string;
-  //TODO size prop
+  width?: string;
+  height?: string;
 };
 
-type PanelProps = Props;
+export type PanelProps = Props;
 
 const Panel: React.FC<PanelProps> = ({
   children,
@@ -23,15 +24,16 @@ const Panel: React.FC<PanelProps> = ({
   title,
   testId = "panel",
   canClose,
+  width,
+  height,
 }) => {
   return (
-    <StyledPanelContainer data-testid={testId}>
+    <StyledPanelContainer data-testid={testId} width={width}>
       <StyledPanelHeader>
         {title}
-
         <Icon icon="X" onClick={onClose ?? undefined} disabled={!canClose} />
       </StyledPanelHeader>
-      <StyledPanelContent>{children}</StyledPanelContent>
+      <StyledPanelContent height={height}>{children}</StyledPanelContent>
     </StyledPanelContainer>
   );
 };
