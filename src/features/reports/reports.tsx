@@ -1,48 +1,52 @@
 import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-grid-system";
-import Panel from "../../common/components/panel";
-import Button from "../../common/components/button";
-import Select from "../../common/components/form/select";
-import noop from "../../utils/noop";
-import ReportTable from "./reportTable";
+import ReportPanel from "./reportPanel";
 
-import {
-  dummyReports,
-  randomReports,
-} from "../../utils/dummyData/dummyReports";
+import { randomReports as genReports } from "../../utils/dummyData/dummyReports";
 import { Report } from "../../common/types/report";
-import { ActionContainer } from "./reports.styled";
+import { Option } from "../../common/types/select";
+import NoReports from "./noReports";
 
 const Reports: React.FC = () => {
   const [reports, setReports] = useState<Report[]>([]);
+  const [reportOptions, setReportOptions] = useState<Option[]>([]);
+  const [visibleReports, setVisibleReports] = useState<number[]>([]);
+
   useEffect(() => {
-    setReports(randomReports());
+    const randomReports = genReports();
+    setReports(randomReports);
+    setReportOptions(
+      randomReports.map(({ name, id }) => ({
+        label: name,
+        value: id,
+      }))
+    );
   }, []);
+
+  const view = (option: Option) => {
+    setVisibleReports([...visibleReports, +option.value]);
+  };
+
+  const hide = (toRemoveId: Number) => {
+    debugger;
+    setVisibleReports([...visibleReports.filter((id) => toRemoveId !== id)]);
+  };
 
   return (
     <Container>
       <Row>
-        <Panel
-          title="Report Grid"
-          canClose={false}
-          id="reportGrid"
-          width="870px"
-          height="715px"
-        >
-          <ActionContainer>
-            <Select
-              options={dummyReports}
-              onChange={noop}
-              placeholder="Select a previously saved report"
+        {visibleReports.length === 0 ? (
+          <NoReports options={reportOptions} view={view} />
+        ) : (
+          visibleReports.map((id) => (
+            <ReportPanel
+              report={reports.find((r) => r.id === id)}
+              options={reportOptions}
+              view={view}
+              onClose={() => hide(id)}
             />
-            <Button icon="Plus" title="Create New">
-              Create New
-            </Button>
-          </ActionContainer>
-          <div style={{ flex: "100%" }}>
-            {reports[0] && <ReportTable report={reports[0]} />}
-          </div>
-        </Panel>
+          ))
+        )}
       </Row>
     </Container>
   );

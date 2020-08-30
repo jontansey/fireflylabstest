@@ -10,7 +10,7 @@ type Props = {
   id?: string;
   title: string;
   canClose: boolean;
-  onClose?(): void;
+  onClose(): void;
   testId?: string;
   width?: string;
   height?: string;
@@ -31,7 +31,7 @@ const Panel: React.FC<PanelProps> = ({
     <StyledPanelContainer data-testid={testId} width={width}>
       <StyledPanelHeader>
         {title}
-        <Icon icon="X" onClick={onClose ?? undefined} disabled={!canClose} />
+        <Icon icon="X" onClick={() => onClose()} disabled={!canClose} />
       </StyledPanelHeader>
       <StyledPanelContent height={height}>{children}</StyledPanelContent>
     </StyledPanelContainer>

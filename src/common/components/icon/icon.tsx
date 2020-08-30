@@ -43,6 +43,7 @@ export const Icon: React.FC<IconProps> = ({
       data-testid={testId}
       clickable={!!onClick}
       disabled={disabled}
+      onClick={onClick}
       {...rest}
     >
       <Component size={size} />

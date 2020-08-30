@@ -26,6 +26,7 @@ export const StyledPanelHeader = styled("div")`
 type ContentProps = Pick<PanelProps, "height">;
 export const StyledPanelContent = styled("div")<ContentProps>`
   display: flex;
+  align-content: flex-start;
   flex-wrap: wrap;
   flex: 1;
   color: ${({ theme }) => theme.colors.textOnHeader};

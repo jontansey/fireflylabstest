@@ -1,14 +1,6 @@
 import { random, date } from "faker";
 
-import { Option } from "../../common/types/select";
 import { ReportRow, Report } from "../../common/types/report";
-
-export const dummyReports: Option[] = [
-  { label: "report1", value: 1 },
-  { label: "report2", value: 2 },
-  { label: "report3", value: 3 },
-  { label: "report4", value: 4 },
-];
 
 export const randomReportRow = (): ReportRow => ({
   dateTime: date.recent(),
@@ -23,10 +15,11 @@ export const randomReportRow = (): ReportRow => ({
 export const randomReportRows = (count = 50): ReportRow[] =>
   [...Array(count)].map(() => randomReportRow());
 
-export const randomReport = (): Report => ({
+export const randomReport = (id: number): Report => ({
+  id,
   name: random.word(),
-  rows: randomReportRows(),
+  rows: randomReportRows(random.number({ min: 30, max: 100 })),
 });
 
 export const randomReports = (count = 5): Report[] =>
-  [...Array(count)].map(() => randomReport());
+  [...Array(count)].map((a, i) => randomReport(i));

@@ -7,6 +7,7 @@ export type ReportRow = {
 };
 
 export type Report = {
+  id: number;
   name: string;
   rows: ReportRow[];
 };
