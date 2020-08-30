@@ -2,6 +2,7 @@ import React from "react";
 import { Report, ReportRow } from "../../../common/types/report";
 import Table from "../../../common/components/table";
 import { TableColumn } from "../../../common/types/table";
+import { format } from "date-fns";
 
 type ReportProps = {
   report: Report;
@@ -12,35 +13,29 @@ const renderReportColumns: TableColumn<ReportRow>[] = [
     title: "Date Time and Identifier",
     field: "dateTime",
     computedField: ({ dateTime, identifier }) =>
-      `${dateTime.toLocaleDateString()}${identifier}`,
-    width: "192px",
+      `${format(dateTime, "yyyy-mm-dd")}${identifier}`,
   },
   {
     title: "Date Time",
     field: "dateTime",
-    computedField: ({ dateTime }) => dateTime.toLocaleDateString(),
-    width: "154px",
+    computedField: ({ dateTime }) => format(dateTime, "yyyy-mm-dd-hh.mm.ss"),
   },
   {
     title: "Identifier Type",
     field: "identifierType",
-    width: "96px",
     center: true,
   },
   {
     title: "Identifier",
     field: "identifier",
-    width: "116px",
   },
   {
     title: "Name",
     field: "name",
-    width: "185px",
   },
   {
     title: "Sedol",
     field: "sedol",
-    width: "117px",
   },
 ];
 

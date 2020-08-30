@@ -16,7 +16,7 @@ export const randomReportRow = (): ReportRow => ({
   identifier: `${random.alphaNumeric(4).toUpperCase()} ${random
     .alphaNumeric(2)
     .toUpperCase()} Equity`,
-  name: random.words(random.number({ min: 1, max: 3 })).toUpperCase(),
+  name: random.words(random.number({ min: 1, max: 2 })).toUpperCase(),
   sedol: random.alphaNumeric(7).toUpperCase(),
 });
 
