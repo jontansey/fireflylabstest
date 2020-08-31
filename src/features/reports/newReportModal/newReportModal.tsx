@@ -3,12 +3,10 @@ import React, { useState } from "react";
 import Modal from "../../../common/components/modal";
 import { Report, Content } from "../../../common/types/report";
 import { random } from "faker";
-import TextInput from "../../../common/components/form/textInput";
-import Select from "../../../common/components/form/select";
-import { randomOptions } from "../../../utils/dummyData/dummyOptions";
 import { StyledContent } from "./newReportModal.styled";
 import ReportForm from "./reportForm";
 import ContentForm from "./contentForm";
+import Code from "../../../common/components/form/code";
 
 type Props = {
   modalOpen: boolean;
@@ -85,6 +83,10 @@ const NewReportModal: React.FC<Props> = ({ modalOpen, close, saveReport }) => {
           addContent={addContent}
         />
       </StyledContent>
+
+      <Code label="code" width="100%">
+        {JSON.stringify(report, undefined, 2)}
+      </Code>
     </Modal>
   );
 };
