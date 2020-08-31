@@ -5,8 +5,8 @@ export const StyledCodeContainer = styled("div")`
   display: block;
   position: relative;
   margin-right: 10px;
-  margin-top: 50px;
-  height: 300px;
+  margin-top: 33px;
+  height: 290px;
 `;
 
 export const StyledPre = styled("pre")<{ width?: string }>`
@@ -17,7 +17,7 @@ export const StyledPre = styled("pre")<{ width?: string }>`
   font-weight: ${({ theme }) => theme.font.weightRegular};
   width: ${({ width }) => (width ? width : "initial")};
   font-size: 10px;
-  height: 300px;
+  height: 290px;
 
   ${customScrollBar}
 `;

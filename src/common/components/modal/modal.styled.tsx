@@ -5,9 +5,10 @@ export const Wrapper = styled("div")`
 `;
 
 export const ContentWrapper = styled("div")`
-  width: 100%;
-  margin-bottom: 50px;
+  width: calc(100% - 50px);
+  margin-bottom: 55px;
   padding: 17px 12px 12px 12px;
+  overflow: auto;
 `;
 
 export const Footer = styled("div")`
@@ -15,11 +16,12 @@ export const Footer = styled("div")`
   flex: 100%;
   justify-content: flex-end;
 
-  position: absolute;
+  position: sticky;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 50px;
+  height: 55px;
+  background-color: ${({ theme }) => theme.colors.surface};
 
   padding: 12px;
 `;

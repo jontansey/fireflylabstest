@@ -19,34 +19,34 @@ const ReportForm: React.FC<Props> = ({ report, setReport }) => (
       type="text"
       value={report.name}
       placeholder="Name"
-      width="250px"
+      width="230px"
       onChange={({ target }) => setReport({ ...report, name: target.value })}
     />
     <Select
       options={options}
-      onChange={(o) => setReport({ ...report, category: o.label })}
+      onChange={({ label }) => setReport({ ...report, category: label })}
       value={options.find(({ label }) => label === report.category)}
       label="Category"
       placeholder="Category"
-      width="150px"
+      width="145px"
     />
 
     <Select
       options={options}
-      onChange={(o) => setReport({ ...report, source: o.label })}
+      onChange={({ label }) => setReport({ ...report, source: label })}
       value={options.find(({ label }) => label === report.source)}
       label="source"
       placeholder="Source"
-      width="150px"
+      width="145px"
     />
 
     <Select
       options={options}
-      onChange={(o) => setReport({ ...report, output: o.label })}
+      onChange={({ label }) => setReport({ ...report, output: label })}
       value={options.find(({ label }) => label === report.output)}
       label="output"
       placeholder="Output"
-      width="150px"
+      width="145px"
     />
   </div>
 );

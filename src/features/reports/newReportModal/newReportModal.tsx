@@ -7,6 +7,7 @@ import { StyledContent } from "./newReportModal.styled";
 import ReportForm from "./reportForm";
 import ContentForm from "./contentForm";
 import Code from "../../../common/components/form/code";
+import { randomReportRows } from "../../../utils/dummyData/dummyReports";
 
 type Props = {
   modalOpen: boolean;
@@ -40,6 +41,8 @@ const NewReportModal: React.FC<Props> = ({ modalOpen, close, saveReport }) => {
   const save = () => {
     //TODO add yup for validation
     if (report.name.length < 1) return;
+
+    report.rows = randomReportRows();
     saveReport(report);
     setReport(emptyReport);
   };
