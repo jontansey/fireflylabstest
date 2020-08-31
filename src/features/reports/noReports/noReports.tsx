@@ -1,10 +1,11 @@
 import React from "react";
 import Panel from "../../../common/components/panel";
-import { ActionContainer } from "../reports.styled";
 import Select from "../../../common/components/form/select";
 import Button from "../../../common/components/button";
 import { Option } from "../../../common/types/select";
 import noop from "../../../utils/noop";
+import { NoReportMessage, ActionContainer, NewIcon } from "./noReports.styled";
+import newicon from "./new.svg";
 
 type NoReportProps = {
   options: Option[];
@@ -31,11 +32,14 @@ const NoReports: React.FC<NoReportProps> = ({ options, view }) => {
         </Button>
       </ActionContainer>
 
-      <div>
-        Create a new Report
-        <br />
-        or choose from a saved one
-      </div>
+      <NoReportMessage>
+        <NewIcon src={newicon} alt="Logo" />
+        <div>
+          Create a new Report
+          <br />
+          or choose from a saved one
+        </div>
+      </NoReportMessage>
     </Panel>
   );
 };

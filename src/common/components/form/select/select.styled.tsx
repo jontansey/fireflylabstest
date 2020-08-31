@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 type StyledSelectProps = {
   disabled: boolean;
-  width?: string;
+  width: string;
 };
 
 export const StyledSelect = styled(Select)<StyledSelectProps>`
   .react-select__control {
-    width: ${({ width }) => width ?? "340px"};
+    width: ${({ width }) => width};
     min-height: initial;
     height: 28px;
     margin-right: 15px;
@@ -63,7 +63,7 @@ export const StyledSelect = styled(Select)<StyledSelectProps>`
     padding: 0;
     margin: 0;
     margin-top: -1px;
-    width: ${({ width }) => width ?? "340px"};
+    width: ${({ width }) => width};
     z-index: 101;
     border-radius: 0;
     background-color: ${({ theme }) => theme.colors.background};

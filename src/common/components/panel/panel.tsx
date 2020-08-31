@@ -25,7 +25,7 @@ const Panel: React.FC<PanelProps> = ({
   testId = "panel",
   canClose,
   width,
-  height,
+  height = "230px",
 }) => {
   return (
     <StyledPanelContainer data-testid={testId} width={width}>

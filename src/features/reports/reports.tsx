@@ -27,10 +27,8 @@ const Reports: React.FC = () => {
     setVisibleReports([...visibleReports, +option.value]);
   };
 
-  const hide = (toRemoveId: Number) => {
-    debugger;
+  const hide = (toRemoveId: Number) =>
     setVisibleReports([...visibleReports.filter((id) => toRemoveId !== id)]);
-  };
 
   return (
     <Container>

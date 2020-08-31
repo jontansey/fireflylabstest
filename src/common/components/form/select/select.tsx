@@ -8,6 +8,7 @@ type SelectProps = {
   testId?: string;
   placeholder?: string;
   value?: Option;
+  width?: string;
 };
 
 export const Select: React.FC<SelectProps> = ({
@@ -16,6 +17,7 @@ export const Select: React.FC<SelectProps> = ({
   placeholder = "select...",
   testId = "select",
   value,
+  width = "330px",
 }) => {
   return (
     <StyledSelect
@@ -25,6 +27,7 @@ export const Select: React.FC<SelectProps> = ({
       classNamePrefix="react-select"
       placeholder={placeholder}
       value={value}
+      width={width}
     />
   );
 };

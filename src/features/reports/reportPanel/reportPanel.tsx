@@ -56,7 +56,7 @@ const ReportPanel: React.FC<ReportProps> = ({
   if (!report) return null;
   return (
     <Panel
-      title={report.name}
+      title={`Report | ${report.name}`}
       canClose={true}
       id="reportGrid"
       width="870px"
