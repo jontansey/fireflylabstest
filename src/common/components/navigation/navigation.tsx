@@ -26,7 +26,7 @@ const Navigation: React.FC = () => {
       </StyledNavigation>
       <br />
       {navigationItems.map(({ url, text }) => (
-        <StyledNavigation href={url} isActive={url === currentURL}>
+        <StyledNavigation href={url} isActive={url === currentURL} key={text}>
           {text}
         </StyledNavigation>
       ))}

@@ -45,6 +45,7 @@ type ReportProps = {
   options: Option[];
   view(option: Option): void;
   onClose(): void;
+  createNew(): void;
 };
 
 const ReportPanel: React.FC<ReportProps> = ({
@@ -52,6 +53,7 @@ const ReportPanel: React.FC<ReportProps> = ({
   options,
   view,
   onClose,
+  createNew,
 }) => {
   if (!report) return null;
   return (
@@ -70,7 +72,7 @@ const ReportPanel: React.FC<ReportProps> = ({
           placeholder="Select a previously saved report"
           value={options.find(({ value }) => value === report.id)}
         />
-        <Button icon="Plus" title="Create New">
+        <Button icon="Plus" title="Create New" onClick={() => createNew()}>
           Create New
         </Button>
       </ActionContainer>

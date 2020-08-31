@@ -12,7 +12,6 @@ const Reports: React.FC = () => {
   const [reports, setReports] = useState<Report[]>([]);
   const [reportOptions, setReportOptions] = useState<Option[]>([]);
   const [visibleReports, setVisibleReports] = useState<number[]>([]);
-
   const [creatingNew, setCreatingNew] = useState<boolean>(false);
 
   useEffect(() => {
@@ -58,6 +57,7 @@ const Reports: React.FC = () => {
                 options={reportOptions}
                 view={view}
                 onClose={() => hide(id)}
+                createNew={() => setCreatingNew(true)}
                 key={id}
               />
             ))

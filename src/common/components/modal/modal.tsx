@@ -22,7 +22,9 @@ const DefaultFooterRenderer = ({
 }: FooterOptions) => (
   <>
     {showClose ? (
-      <Button onClick={close}>{closeText.toUpperCase()}</Button>
+      <Button onClick={close} style={{ marginRight: "23px" }}>
+        {closeText.toUpperCase()}
+      </Button>
     ) : null}
     {actions.map(({ text, action, disabled }, i) => (
       <Button key={i} onClick={action} disabled={disabled}>
@@ -36,6 +38,7 @@ type Props = {
   isOpen: boolean;
   title: string;
   width?: Offsets;
+  height?: string;
   offset?: Offsets;
   renderFooter?: (options: FooterOptions) => ReactNode;
 };
@@ -59,6 +62,7 @@ const Modal: React.FC<ModalProps> = ({
   actions = [],
   showClose = true,
   renderFooter = DefaultFooterRenderer,
+  height = "610px",
 }) => {
   return (
     <ReactModal
@@ -75,6 +79,7 @@ const Modal: React.FC<ModalProps> = ({
                 canClose={true}
                 onClose={close}
                 title={title}
+                height={height}
               >
                 <ContentWrapper>{children}</ContentWrapper>
                 <Footer>

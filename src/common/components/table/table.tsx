@@ -11,15 +11,17 @@ export const Table: React.FC<TableProps> = ({ columns, data }) => {
   return (
     <StyledTable>
       <StyledTHead>
-        {columns.map(({ title }) => (
-          <StyledTH>{title}</StyledTH>
-        ))}
+        <tr>
+          {columns.map(({ title }) => (
+            <StyledTH key={title}>{title}</StyledTH>
+          ))}
+        </tr>
       </StyledTHead>
       <tbody>
-        {data.map((item) => (
-          <tr>
-            {columns.map(({ field, computedField, center }) => (
-              <StyledTD displayCenter={center}>
+        {data.map((item, i) => (
+          <tr key={`${i}-row`}>
+            {columns.map(({ field, computedField, center }, i) => (
+              <StyledTD displayCenter={center} key={`${field}${i}`}>
                 {computedField ? computedField(item) : item[field]}
               </StyledTD>
             ))}

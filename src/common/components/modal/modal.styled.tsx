@@ -7,6 +7,7 @@ export const Wrapper = styled("div")`
 export const ContentWrapper = styled("div")`
   width: 100%;
   margin-bottom: 50px;
+  padding: 12px;
 `;
 
 export const Footer = styled("div")`
@@ -19,6 +20,8 @@ export const Footer = styled("div")`
   left: 0;
   right: 0;
   height: 50px;
+
+  padding: 12px;
 `;
 
 export const ModalBackground = styled("div")`

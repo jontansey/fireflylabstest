@@ -19,6 +19,7 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   onClick,
   testId = "iconButton",
+  ...rest
 }) => (
   <StyledButton
     disabled={disabled}
@@ -26,6 +27,7 @@ export const Button: React.FC<ButtonProps> = ({
     icon={icon}
     data-testid={testId}
     onClick={onClick}
+    {...rest}
   >
     {icon && <Icon icon={icon} title={title} size="19px" />}
     {children}
