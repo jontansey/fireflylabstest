@@ -5,7 +5,7 @@ import Button from "../../../common/components/button";
 import { Option } from "../../../common/types/select";
 import noop from "../../../utils/noop";
 import { NoReportMessage, ActionContainer, NewIcon } from "./noReports.styled";
-import newicon from "./new.svg";
+import newIcon from "./new.svg";
 
 type NoReportProps = {
   options: Option[];
@@ -33,7 +33,7 @@ const NoReports: React.FC<NoReportProps> = ({ options, view }) => {
       </ActionContainer>
 
       <NoReportMessage>
-        <NewIcon src={newicon} alt="Logo" />
+        <NewIcon src={newIcon} alt="Logo" />
         <div>
           Create a new Report
           <br />

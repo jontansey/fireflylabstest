@@ -7,8 +7,8 @@ import { AllowedIcons } from "../icon/icon";
 
 export interface ButtonProps
   extends StyledComponentProps<"button", DefaultTheme, {}, never> {
-  icon: AllowedIcons;
-  title: string;
+  icon?: AllowedIcons;
+  title?: string;
   testId?: string;
 }
 

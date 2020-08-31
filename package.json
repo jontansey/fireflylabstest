@@ -13,6 +13,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-select": "2.0.19",
     "@types/styled-components": "^5.1.2",
+    "@types/styled-react-modal": "^1.2.0",
     "date-fns": "^2.16.0",
     "faker": "^5.1.0",
     "mdi-react": "^7.3.0",
@@ -22,6 +23,7 @@
     "react-scripts": "3.4.3",
     "react-select": "3.0.4",
     "styled-components": "^5.1.1",
+    "styled-react-modal": "^2.0.1",
     "typescript": "~3.7.2"
   },
   "scripts": {
