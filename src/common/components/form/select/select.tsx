@@ -11,6 +11,7 @@ type SelectProps = {
   value?: Option;
   width?: string;
   label?: string;
+  disabled?: boolean;
 };
 
 export const Select: React.FC<SelectProps> = ({
@@ -21,6 +22,7 @@ export const Select: React.FC<SelectProps> = ({
   value,
   width = "330px",
   label,
+  disabled,
 }) => {
   return (
     <StyledSelectContainer>
@@ -33,6 +35,7 @@ export const Select: React.FC<SelectProps> = ({
         placeholder={placeholder}
         value={value}
         width={width}
+        isDisabled={disabled}
       />
     </StyledSelectContainer>
   );

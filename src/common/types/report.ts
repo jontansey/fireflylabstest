@@ -6,6 +6,13 @@ export type ReportRow = {
   sedol: string;
 };
 
+export type Content = {
+  id: number;
+  name: string;
+  value: string;
+  type?: string;
+};
+
 export type Report = {
   id: number;
   name: string;
@@ -14,4 +21,6 @@ export type Report = {
   category?: string;
   source?: string;
   output?: string;
+
+  content: Content[];
 };

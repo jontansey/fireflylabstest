@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 
 import Modal from "../../../common/components/modal";
-import { Report } from "../../../common/types/report";
+import { Report, Content } from "../../../common/types/report";
 import { random } from "faker";
 import TextInput from "../../../common/components/form/textInput";
 import Select from "../../../common/components/form/select";
 import { randomOptions } from "../../../utils/dummyData/dummyOptions";
+import { StyledContent } from "./newReportModal.styled";
+import ReportForm from "./reportForm";
+import ContentForm from "./contentForm";
 
 type Props = {
   modalOpen: boolean;
@@ -13,24 +16,46 @@ type Props = {
   saveReport(newReport: Report): void;
 };
 
-const options = randomOptions();
-const emptyReport = {
+const emptyReport: Report = {
   id: random.number({ min: 5 }),
   name: "",
   rows: [],
   category: undefined,
   output: undefined,
   source: undefined,
+  content: [],
 };
+
+const emptyContent = (id: number): Content => ({
+  id,
+  name: "",
+  value: "",
+  type: undefined,
+});
 
 const NewReportModal: React.FC<Props> = ({ modalOpen, close, saveReport }) => {
   const [report, setReport] = useState<Report>(emptyReport);
+  const [newContent, setNewContent] = useState<Content>(
+    emptyContent(random.number())
+  );
 
   const save = () => {
     //TODO add yup for validation
     if (report.name.length < 1) return;
     saveReport(report);
     setReport(emptyReport);
+  };
+
+  const addContent = () => {
+    setReport({ ...report, content: [...report.content, newContent] });
+    setNewContent(emptyContent(random.number()));
+  };
+
+  const removeContent = (id: number) => {
+    setReport({
+      ...report,
+      content: [...report.content.filter((c) => c.id !== id)],
+    });
   };
 
   return (
@@ -42,40 +67,24 @@ const NewReportModal: React.FC<Props> = ({ modalOpen, close, saveReport }) => {
       width={{ xs: 6 }}
       offset={{ xs: 3 }}
     >
-      <TextInput
-        label="Name"
-        type="text"
-        value={report.name}
-        placeholder="Name"
-        width="265px;"
-        onChange={({ target }) => setReport({ ...report, name: target.value })}
-      />
-      <Select
-        options={options}
-        onChange={(o) => setReport({ ...report, category: o.label })}
-        value={options.find(({ label }) => label === report.category)}
-        label="Category"
-        placeholder="Category"
-        width="150px"
-      />
-
-      <Select
-        options={options}
-        onChange={(o) => setReport({ ...report, source: o.label })}
-        value={options.find(({ label }) => label === report.source)}
-        label="source"
-        placeholder="Source"
-        width="150px"
-      />
-
-      <Select
-        options={options}
-        onChange={(o) => setReport({ ...report, output: o.label })}
-        value={options.find(({ label }) => label === report.output)}
-        label="output"
-        placeholder="Output"
-        width="150px"
-      />
+      <ReportForm report={report} setReport={setReport} />
+      <StyledContent>
+        <p>Set the content for the report</p>
+        {report.content.map((c) => (
+          <ContentForm
+            content={c}
+            setContent={setNewContent}
+            addContent={addContent}
+            removeContent={removeContent}
+            adding={false}
+          />
+        ))}
+        <ContentForm
+          content={newContent}
+          setContent={setNewContent}
+          addContent={addContent}
+        />
+      </StyledContent>
     </Modal>
   );
 };

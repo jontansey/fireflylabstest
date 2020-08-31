@@ -19,6 +19,7 @@ export const randomReport = (id: number): Report => ({
   id,
   name: random.word(),
   rows: randomReportRows(random.number({ min: 30, max: 100 })),
+  content: [],
 });
 
 export const randomReports = (count = 5): Report[] =>

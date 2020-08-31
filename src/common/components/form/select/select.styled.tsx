@@ -9,7 +9,7 @@ type StyledSelectProps = {
 export const StyledSelectContainer = styled("div")`
   display: inline-block;
   position: relative;
-  top: 3px;
+  top: 1px;
 `;
 
 export const StyledSelect = styled(Select)<StyledSelectProps>`
@@ -28,7 +28,7 @@ export const StyledSelect = styled(Select)<StyledSelectProps>`
     &.react-select__control--is-disabled {
       background-color: ${({ theme }) => theme.colors.surface};
       color: ${({ theme }) => theme.colors.textOnSurface};
-      opacity: 0.2;
+      opacity: 0.9;
     }
   }
 
@@ -46,6 +46,7 @@ export const StyledSelect = styled(Select)<StyledSelectProps>`
     padding-bottom: 0;
     border-radius: 0;
     font-weight: ${({ theme }) => theme.font.weightRegular};
+    font-size: 10px;
   }
 
   .react-select__single-value {
@@ -70,7 +71,7 @@ export const StyledSelect = styled(Select)<StyledSelectProps>`
     margin: 0;
     margin-top: -1px;
     width: ${({ width }) => width};
-    z-index: 101;
+    z-index: 300;
     border-radius: 0;
     background-color: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.textOnSurface};

@@ -8,7 +8,13 @@ import {
 type HTMLInputProps = Partial<
   Pick<
     HTMLInputElement,
-    "name" | "type" | "placeholder" | "value" | "type" | "maxLength"
+    | "name"
+    | "type"
+    | "placeholder"
+    | "value"
+    | "type"
+    | "maxLength"
+    | "disabled"
   >
 >;
 
