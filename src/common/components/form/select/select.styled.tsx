@@ -6,6 +6,12 @@ type StyledSelectProps = {
   width: string;
 };
 
+export const StyledSelectContainer = styled("div")`
+  display: inline-block;
+  position: relative;
+  top: 3px;
+`;
+
 export const StyledSelect = styled(Select)<StyledSelectProps>`
   .react-select__control {
     width: ${({ width }) => width};

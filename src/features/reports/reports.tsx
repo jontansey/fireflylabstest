@@ -12,7 +12,7 @@ const Reports: React.FC = () => {
   const [reports, setReports] = useState<Report[]>([]);
   const [reportOptions, setReportOptions] = useState<Option[]>([]);
   const [visibleReports, setVisibleReports] = useState<number[]>([]);
-  const [creatingNew, setCreatingNew] = useState<boolean>(false);
+  const [creatingNew, setCreatingNew] = useState<boolean>(true);
 
   useEffect(() => {
     const randomReports = genReports();

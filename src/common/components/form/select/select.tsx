@@ -1,6 +1,7 @@
 import React from "react";
-import { StyledSelect } from "./select.styled";
+import { StyledSelect, StyledSelectContainer } from "./select.styled";
 import { Option } from "../../../types/select";
+import { StyledLabel } from "../textInput/textInput.styled";
 
 type SelectProps = {
   options: Option[];
@@ -9,6 +10,7 @@ type SelectProps = {
   placeholder?: string;
   value?: Option;
   width?: string;
+  label?: string;
 };
 
 export const Select: React.FC<SelectProps> = ({
@@ -18,17 +20,21 @@ export const Select: React.FC<SelectProps> = ({
   testId = "select",
   value,
   width = "330px",
+  label,
 }) => {
   return (
-    <StyledSelect
-      data-testid={testId}
-      options={options}
-      onChange={onChange}
-      classNamePrefix="react-select"
-      placeholder={placeholder}
-      value={value}
-      width={width}
-    />
+    <StyledSelectContainer>
+      {label && <StyledLabel>{label}</StyledLabel>}
+      <StyledSelect
+        data-testid={testId}
+        options={options}
+        onChange={onChange}
+        classNamePrefix="react-select"
+        placeholder={placeholder}
+        value={value}
+        width={width}
+      />
+    </StyledSelectContainer>
   );
 };
 

@@ -1,5 +1,9 @@
 import React, { ChangeEvent } from "react";
-import { StyledInput } from "./textInput.styled";
+import {
+  StyledInput,
+  StyledLabel,
+  StyledInputContainer,
+} from "./textInput.styled";
 
 type HTMLInputProps = Partial<
   Pick<
@@ -15,10 +19,20 @@ type InputProps = HTMLInputProps & {
   label: string;
   onChange?: TEventHandler;
   testId?: string;
+  width?: string;
 };
 
-export const TextInput: React.FC<InputProps> = ({ testId, ...props }) => {
-  return <StyledInput type="text" data-testid={testId} {...props} />;
+export const TextInput: React.FC<InputProps> = ({
+  testId,
+  label,
+  ...props
+}) => {
+  return (
+    <StyledInputContainer>
+      <StyledLabel>{label}</StyledLabel>
+      <StyledInput type="text" data-testid={testId} {...props} />
+    </StyledInputContainer>
+  );
 };
 
 export default TextInput;

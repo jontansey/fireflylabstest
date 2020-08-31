@@ -7,7 +7,7 @@ export const Wrapper = styled("div")`
 export const ContentWrapper = styled("div")`
   width: 100%;
   margin-bottom: 50px;
-  padding: 12px;
+  padding: 17px 12px 12px 12px;
 `;
 
 export const Footer = styled("div")`
