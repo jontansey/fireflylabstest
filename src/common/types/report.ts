@@ -10,4 +10,8 @@ export type Report = {
   id: number;
   name: string;
   rows: ReportRow[];
+
+  category?: string;
+  source?: string;
+  output?: string;
 };

@@ -10,9 +10,10 @@ import newIcon from "./new.svg";
 type NoReportProps = {
   options: Option[];
   view(option: Option): void;
+  createNew(): void;
 };
 
-const NoReports: React.FC<NoReportProps> = ({ options, view }) => {
+const NoReports: React.FC<NoReportProps> = ({ options, view, createNew }) => {
   return (
     <Panel
       title="Report Grid"
@@ -27,12 +28,12 @@ const NoReports: React.FC<NoReportProps> = ({ options, view }) => {
           onChange={view}
           placeholder="Select a previously saved report"
         />
-        <Button icon="Plus" title="Create New">
+        <Button icon="Plus" title="Create New" onClick={() => createNew()}>
           Create New
         </Button>
       </ActionContainer>
 
-      <NoReportMessage>
+      <NoReportMessage onClick={() => createNew()}>
         <NewIcon src={newIcon} alt="Logo" />
         <div>
           Create a new Report
