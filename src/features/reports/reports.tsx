@@ -12,7 +12,7 @@ const Reports: React.FC = () => {
   const [reports, setReports] = useState<Report[]>([]);
   const [reportOptions, setReportOptions] = useState<Option[]>([]);
   const [visibleReports, setVisibleReports] = useState<number[]>([]);
-  const [creatingNew, setCreatingNew] = useState<boolean>(true);
+  const [creatingNew, setCreatingNew] = useState<boolean>(false);
 
   useEffect(() => {
     const randomReports = genReports();
@@ -42,7 +42,7 @@ const Reports: React.FC = () => {
 
   return (
     <>
-      <Container>
+      <Container style={{ maxWidth: "1800px" }}>
         <Row>
           {visibleReports.length === 0 ? (
             <NoReports

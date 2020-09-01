@@ -40,10 +40,8 @@ const NewReportModal: React.FC<Props> = ({ modalOpen, close, saveReport }) => {
 
   const save = () => {
     //TODO add yup for validation
-    if (report.name.length < 1) return;
-
-    report.rows = randomReportRows();
-    saveReport(report);
+    report.rows = randomReportRows(random.number(50));
+    saveReport(report.name.length ? report : { ...report, name: "Unknown" });
     setReport(emptyReport);
   };
 
