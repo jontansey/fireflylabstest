@@ -20,6 +20,7 @@ export const NoReportMessage = styled("div")`
   div {
     opacity: 0.4;
   }
+  cursor: pointer;
 `;
 
 export const NewIcon = styled("img")`

@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
 import ReactModal from "styled-react-modal";
-import { Container, Row, Col, Offsets } from "react-grid-system";
 
 import Button from "../button";
 import noop from "../../../utils/noop";
@@ -37,9 +36,8 @@ const DefaultFooterRenderer = ({
 type Props = {
   isOpen: boolean;
   title: string;
-  width?: Offsets;
+  width?: string;
   height?: string;
-  offset?: Offsets;
   renderFooter?: (options: FooterOptions) => ReactNode;
 };
 
@@ -54,8 +52,6 @@ export type ModalProps = Props & FooterOptions;
 const Modal: React.FC<ModalProps> = ({
   isOpen,
   title,
-  width = { xs: 11, md: 8 },
-  offset = { xs: 0.5, md: 2 },
   close,
   closeText = "Close",
   children,
@@ -63,6 +59,7 @@ const Modal: React.FC<ModalProps> = ({
   showClose = true,
   renderFooter = DefaultFooterRenderer,
   height = "610px",
+  width = "800px",
 }) => {
   return (
     <ReactModal
@@ -71,29 +68,24 @@ const Modal: React.FC<ModalProps> = ({
       onEscapeKeydown={close}
     >
       <Wrapper>
-        <Container fluid>
-          <Row>
-            <Col {...width} offset={offset}>
-              <Panel
-                id="modalContent"
-                canClose={true}
-                onClose={close}
-                title={title}
-                height={height}
-              >
-                <ContentWrapper>{children}</ContentWrapper>
-                <Footer>
-                  {renderFooter({
-                    actions,
-                    close,
-                    closeText,
-                    showClose,
-                  })}
-                </Footer>
-              </Panel>
-            </Col>
-          </Row>
-        </Container>
+        <Panel
+          id="modalContent"
+          canClose={true}
+          onClose={close}
+          title={title}
+          height={height}
+          width={width}
+        >
+          <ContentWrapper>{children}</ContentWrapper>
+          <Footer>
+            {renderFooter({
+              actions,
+              close,
+              closeText,
+              showClose,
+            })}
+          </Footer>
+        </Panel>
       </Wrapper>
     </ReactModal>
   );

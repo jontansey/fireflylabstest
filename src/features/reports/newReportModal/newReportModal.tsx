@@ -41,7 +41,7 @@ const NewReportModal: React.FC<Props> = ({ modalOpen, close, saveReport }) => {
   const save = () => {
     //TODO add yup for validation
     report.rows = randomReportRows(random.number(50));
-    saveReport(report.name.length ? report : { ...report, name: "Unknown" });
+    saveReport(report.name.length ? report : { ...report, name: "Unnamed" });
     setReport(emptyReport);
   };
 
@@ -63,8 +63,6 @@ const NewReportModal: React.FC<Props> = ({ modalOpen, close, saveReport }) => {
       isOpen={modalOpen}
       close={close}
       actions={[{ text: "save", action: save }]}
-      width={{ xs: 6 }}
-      offset={{ xs: 3 }}
     >
       <ReportForm report={report} setReport={setReport} />
       <StyledContent>
