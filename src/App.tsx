@@ -8,11 +8,7 @@ import Reports from "./features/reports";
 const App: React.FC = () => (
   <Providers>
     <Container style={{ maxWidth: "1800px" }}>
-      <Row>
-        <Col>
-          <Navigation />
-        </Col>
-      </Row>
+      <Navigation />
     </Container>
     <Reports />
   </Providers>

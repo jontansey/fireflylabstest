@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row } from "react-grid-system";
+import { Container, Row, Col } from "react-grid-system";
 import ReportPanel from "./reportPanel";
 
 import { randomReports as genReports } from "../../utils/dummyData/dummyReports";

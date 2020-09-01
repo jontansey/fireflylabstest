@@ -19,7 +19,7 @@ const ReportForm: React.FC<Props> = ({ report, setReport }) => (
       type="text"
       value={report.name}
       placeholder="Name"
-      width="230px"
+      width="210px"
       onChange={({ target }) => setReport({ ...report, name: target.value })}
     />
     <Select

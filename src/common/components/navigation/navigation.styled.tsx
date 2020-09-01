@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledNavigationContainer = styled("div")`
   border-bottom: 1px solid ${({ theme }) => theme.colors.border};
+  margin: 0 -15px;
 `;
 
 export const StyledNavigation = styled("a")<{ isActive: boolean }>`
